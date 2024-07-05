@@ -1,7 +1,9 @@
 #created by me- sadashiv
 
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, JsonResponse
+# from .my_func import get_minecode_result
+# from myproject.my_func import get_minecode_result
 
 
 # Create your views here.
@@ -68,3 +70,20 @@ def temp1(request) :
 
 def contact_us(request) :
     return render(request, 'contact_us.html')
+
+
+def search_minecode_view(request):
+    return redirect('search_view_minecode') 
+
+# def search_minecode(request):
+#     minecode = request.GET.get('minecode')
+#     print(minecode)
+#     if minecode:
+#         minecode_result = get_minecode_result(minecode)  # Get the result from the search function
+#         print(minecode_result)
+#     else:
+#         minecode_result = "No minecode provided"
+        
+#     return JsonResponse({'result': minecode_result})
+
+

@@ -17,12 +17,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+# from search import views
+
+# from search import views
 
 urlpatterns = [
+    # path("aentry/", include("aentry.urls")),
+    
+    
+    path('',views.index, name= 'index'), 
     path("aentry/", include("aentry.urls")),
     path('admin/', admin.site.urls),  
-    path('',views.index, name= 'index'), 
     path('analyze',views.analyze, name= 'analyze'), 
     path('temp1',views.temp1, name= 'temp1'),
     path('contact_us',views.contact_us, name= 'contact_us'),
+
+    path('search/', include('search.urls')),
+    path('minecode-redirect/', views.search_minecode_view, name='search_minecode_view'),
+    # path('search/minecode/', views.search_minecode, name='search_minecode'),
+    # path('search/minecode/', search/views.search_view, name='search_minecode'),
+    # path('search/minecode/', views.search_minecode_view, name='search_minecode_view' ),
 ]
